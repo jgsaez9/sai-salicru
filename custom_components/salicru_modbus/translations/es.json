@@ -1,0 +1,131 @@
+{
+  "title": "Salicru SAI",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Salicru SAI",
+        "description": "Conecta tu SLC TWIN RT3 por la red local. Activa Modbus TCP en el SAI antes de continuar. Introduce solo la IP o el nombre de host, sin https://. Se comprobarán los 11 registros del perfil IQ14700; puede tardar unos segundos. No se necesita cuenta Nimbus ni editar YAML.",
+        "data": {
+          "name": "Nombre",
+          "host": "Dirección IP o nombre de host",
+          "port": "Puerto",
+          "unit_id": "Unit ID (dirección Modbus)"
+        }
+      },
+      "reconfigure": {
+        "title": "Cambiar conexión",
+        "description": "Actualiza la conexión conservando las entidades y su historial.",
+        "data": {
+          "name": "Nombre",
+          "host": "Dirección IP o nombre de host",
+          "port": "Puerto",
+          "unit_id": "Unit ID (dirección Modbus)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "No se ha podido leer el SAI. Comprueba IP, puerto, Unit ID y que Modbus TCP esté habilitado y accesible desde Home Assistant.",
+      "modbus_error": "El SAI ha rechazado una lectura Modbus. Comprueba el Unit ID y la compatibilidad con el mapa IQ14700 de SLC TWIN RT3.",
+      "invalid_data": "Uno o más registros contienen valores no válidos para este perfil. Comprueba modelo, firmware y mapa Modbus.",
+      "invalid_host": "Introduce una IP o nombre de host, sin protocolo ni puerto."
+    },
+    "abort": {
+      "already_configured": "Este destino Modbus ya está configurado.",
+      "reconfigure_successful": "Conexión actualizada."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Actualización de datos",
+        "description": "Valores iniciales: 60 s entre ciclos, 3 s de espera por respuesta y 200 ms entre peticiones. Los cambios recargan la integración.",
+        "data": {
+          "scan_interval": "Intervalo de actualización (segundos)",
+          "timeout": "Tiempo de espera (segundos)",
+          "message_wait": "Pausa entre peticiones (milisegundos)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "input_voltage": {
+        "name": "Tensión de entrada"
+      },
+      "output_voltage": {
+        "name": "Tensión de salida"
+      },
+      "input_frequency": {
+        "name": "Frecuencia de entrada"
+      },
+      "output_frequency": {
+        "name": "Frecuencia de salida"
+      },
+      "output_current": {
+        "name": "Corriente de salida"
+      },
+      "load": {
+        "name": "Carga del SAI"
+      },
+      "battery_level": {
+        "name": "Nivel de batería"
+      },
+      "battery_voltage": {
+        "name": "Tensión de batería"
+      },
+      "operating_mode": {
+        "name": "Modo del SAI",
+        "state": {
+          "power_on": "Encendido inicial",
+          "standby": "Espera",
+          "bypass": "Bypass",
+          "line": "En línea",
+          "battery": "Batería",
+          "battery_test": "Prueba de batería",
+          "reserved": "Reservado",
+          "converter": "Convertidor",
+          "eco": "ECO",
+          "unknown_mode": "Código desconocido"
+        }
+      },
+      "mode_code": {
+        "name": "Código de modo"
+      },
+      "status_1": {
+        "name": "Registro de estado 1"
+      },
+      "status_5": {
+        "name": "Registro de estado 5"
+      }
+    },
+    "binary_sensor": {
+      "mains_present": {
+        "name": "Red eléctrica presente"
+      },
+      "output_powered": {
+        "name": "Salida alimentada"
+      },
+      "battery_present": {
+        "name": "Batería presente"
+      },
+      "low_battery": {
+        "name": "Batería baja"
+      },
+      "overload": {
+        "name": "Sobrecarga"
+      },
+      "over_temperature": {
+        "name": "Temperatura elevada"
+      },
+      "internal_fault": {
+        "name": "Fallo interno"
+      },
+      "replace_battery": {
+        "name": "Sustitución de batería"
+      },
+      "fan_fault": {
+        "name": "Fallo del ventilador"
+      }
+    }
+  }
+}

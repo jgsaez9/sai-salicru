@@ -1,0 +1,26 @@
+{
+  "entity": {
+    "sensor": {
+      "load": {
+        "default": "mdi:gauge"
+      },
+      "operating_mode": {
+        "default": "mdi:power-plug"
+      },
+      "mode_code": {
+        "default": "mdi:code-braces"
+      },
+      "status_1": {
+        "default": "mdi:code-braces"
+      },
+      "status_5": {
+        "default": "mdi:code-braces"
+      }
+    },
+    "binary_sensor": {
+      "battery_present": {
+        "default": "mdi:battery-check"
+      }
+    }
+  }
+}

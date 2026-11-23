@@ -1,0 +1,131 @@
+{
+  "title": "Salicru SAI",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Salicru SAI",
+        "description": "Connect your SLC TWIN RT3 over the local network. Enable Modbus TCP on the UPS first. Enter only the IP address or hostname, without https://. All 11 registers in the IQ14700 profile will be checked; this may take a few seconds. No Nimbus account or YAML is required.",
+        "data": {
+          "name": "Name",
+          "host": "IP address or hostname",
+          "port": "Port",
+          "unit_id": "Unit ID (Modbus address)"
+        }
+      },
+      "reconfigure": {
+        "title": "Change connection",
+        "description": "Update the connection while keeping entities and their history.",
+        "data": {
+          "name": "Name",
+          "host": "IP address or hostname",
+          "port": "Port",
+          "unit_id": "Unit ID (Modbus address)"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Unable to read the UPS. Check the host, port, Unit ID and that Modbus TCP is enabled and reachable from Home Assistant.",
+      "modbus_error": "The UPS rejected a Modbus read. Check the Unit ID and compatibility with the SLC TWIN RT3 IQ14700 map.",
+      "invalid_data": "One or more registers contain invalid values for this profile. Check the model, firmware and Modbus map.",
+      "invalid_host": "Enter an IP address or hostname, without a URL scheme or port."
+    },
+    "abort": {
+      "already_configured": "This Modbus endpoint is already configured.",
+      "reconfigure_successful": "Connection updated."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Polling settings",
+        "description": "Defaults: 60 s between cycles, 3 s response timeout and 200 ms between requests. Changes reload the integration.",
+        "data": {
+          "scan_interval": "Polling interval (seconds)",
+          "timeout": "Response timeout (seconds)",
+          "message_wait": "Delay between requests (milliseconds)"
+        }
+      }
+    }
+  },
+  "entity": {
+    "sensor": {
+      "input_voltage": {
+        "name": "Input voltage"
+      },
+      "output_voltage": {
+        "name": "Output voltage"
+      },
+      "input_frequency": {
+        "name": "Input frequency"
+      },
+      "output_frequency": {
+        "name": "Output frequency"
+      },
+      "output_current": {
+        "name": "Output current"
+      },
+      "load": {
+        "name": "UPS load"
+      },
+      "battery_level": {
+        "name": "Battery level"
+      },
+      "battery_voltage": {
+        "name": "Battery voltage"
+      },
+      "operating_mode": {
+        "name": "Operating mode",
+        "state": {
+          "power_on": "Power on",
+          "standby": "Standby",
+          "bypass": "Bypass",
+          "line": "On line",
+          "battery": "On battery",
+          "battery_test": "Battery test",
+          "reserved": "Reserved",
+          "converter": "Converter",
+          "eco": "ECO",
+          "unknown_mode": "Unknown code"
+        }
+      },
+      "mode_code": {
+        "name": "Mode code"
+      },
+      "status_1": {
+        "name": "Status register 1"
+      },
+      "status_5": {
+        "name": "Status register 5"
+      }
+    },
+    "binary_sensor": {
+      "mains_present": {
+        "name": "Mains present"
+      },
+      "output_powered": {
+        "name": "Output powered"
+      },
+      "battery_present": {
+        "name": "Battery present"
+      },
+      "low_battery": {
+        "name": "Low battery"
+      },
+      "overload": {
+        "name": "Overload"
+      },
+      "over_temperature": {
+        "name": "Over temperature"
+      },
+      "internal_fault": {
+        "name": "Internal fault"
+      },
+      "replace_battery": {
+        "name": "Replace battery"
+      },
+      "fan_fault": {
+        "name": "Fan fault"
+      }
+    }
+  }
+}
