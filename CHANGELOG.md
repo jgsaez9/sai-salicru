@@ -1,5 +1,9 @@
 # Cambios
 
+## 1.1.1
+
+- Muestra el icono de la integración en la página del repositorio y conserva los recursos de marca locales para Home Assistant, HACS y Marketplace.
+
 ## 1.1.0
 
 - Añade lecturas de potencia activa/aparente, bypass, temperatura, factor de potencia y datos de diagnóstico.

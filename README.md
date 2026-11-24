@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="custom_components/salicru_modbus/brand/icon.png" alt="Salicru SAI para Home Assistant" width="160" />
+</p>
+
 # Salicru SAI para Home Assistant
 
 Integra un **Salicru SLC TWIN RT3 por Modbus TCP** desde la interfaz de Home Assistant, sin editar YAML, sin NUT y sin cuenta Nimbus. Instalación como repositorio personalizado de HACS.
