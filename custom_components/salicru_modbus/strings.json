@@ -4,7 +4,7 @@
     "step": {
       "user": {
         "title": "Salicru SAI",
-        "description": "Connect your SLC TWIN RT3 over the local network. Enable Modbus TCP on the UPS first. Enter only the IP address or hostname, without https://. All 11 registers in the IQ14700 profile will be checked; this may take a few seconds. No Nimbus account or YAML is required.",
+        "description": "Connect your SLC TWIN RT3 over the local network. Enable Modbus TCP on the UPS first. Enter only the IP address or hostname, without https://. The read-only IQ14700 profile will be checked; this may take a few seconds. No Nimbus account or YAML is required.",
         "data": {
           "name": "Name",
           "host": "IP address or hostname",
@@ -73,6 +73,46 @@
       "battery_voltage": {
         "name": "Battery voltage"
       },
+      "nominal_battery_voltage": {"name": "Nominal battery voltage"},
+      "bypass_voltage": {"name": "Bypass voltage"},
+      "bypass_frequency": {"name": "Bypass frequency"},
+      "active_output_power": {"name": "Active output power"},
+      "apparent_output_power": {"name": "Apparent output power"},
+      "nominal_active_power": {"name": "Rated active power"},
+      "nominal_apparent_power": {"name": "Rated apparent power"},
+      "internal_temperature": {"name": "Internal temperature"},
+      "external_battery_branches": {"name": "External battery strings"},
+      "power_factor": {"name": "Output power factor"},
+      "firmware_version": {"name": "UPS firmware version"},
+      "battery_test_result": {
+        "name": "Last battery test result",
+        "state": {
+          "passed": "Passed", "reserved": "Reserved", "failed": "Failed",
+          "aborted": "Aborted", "in_progress": "In progress", "not_started": "Not started"
+        }
+      },
+      "charger_mode": {
+        "name": "Charger mode",
+        "state": {
+          "unknown": "Unknown", "charging": "Charging", "discharging": "Discharging",
+          "float": "Float", "resting": "Resting", "off": "Off"
+        }
+      },
+      "converter_type": {
+        "name": "Converter type",
+        "state": {
+          "unknown": "Unknown", "line_interactive": "Line interactive",
+          "online": "Online", "online_parallel": "Online parallel"
+        }
+      },
+      "phase_configuration": {
+        "name": "Input/output phase configuration",
+        "state": {
+          "unknown": "Unknown", "single_single": "Single phase in / single phase out",
+          "two_two": "Two phase in / two phase out", "three_single": "Three phase in / single phase out",
+          "three_three": "Three phase in / three phase out"
+        }
+      },
       "operating_mode": {
         "name": "Operating mode",
         "state": {
@@ -94,9 +134,15 @@
       "status_1": {
         "name": "Status register 1"
       },
+      "status_2": {"name": "Status register 2 (raw)"},
+      "status_3": {"name": "Status register 3 (raw)"},
+      "status_4": {"name": "Status register 4 (raw)"},
       "status_5": {
         "name": "Status register 5"
-      }
+      },
+      "status_6": {"name": "Status register 6 (raw)"},
+      "status_7": {"name": "Status register 7 (raw)"},
+      "status_8": {"name": "Status register 8 (raw)"}
     },
     "binary_sensor": {
       "mains_present": {
@@ -125,7 +171,36 @@
       },
       "fan_fault": {
         "name": "Fan fault"
-      }
+      },
+      "load_segment_supported": {"name": "Load segment supported"},
+      "iot_connected": {"name": "IoT module connected"},
+      "charger_fault": {"name": "Charger fault"},
+      "battery_end_of_runtime": {"name": "Battery runtime exhausted"},
+      "input_wiring_fault": {"name": "Input wiring fault"},
+      "input_frequency_out_of_range": {"name": "Input frequency out of range"},
+      "input_voltage_out_of_range": {"name": "Input voltage out of range"},
+      "bypass_frequency_out_of_range": {"name": "Bypass frequency out of range"},
+      "bypass_fault": {"name": "Bypass fault"},
+      "bypass_overload": {"name": "Bypass overload"},
+      "output_overload_prealarm": {"name": "Output overload pre-alarm"},
+      "output_short_circuit_alarm": {"name": "Output short-circuit alarm"},
+      "output_short_circuit": {"name": "Output short circuit"},
+      "emergency_stop": {"name": "Emergency stop"},
+      "outlet_group_1_on": {"name": "Outlet group 1 on"},
+      "inverter_current_limitation": {"name": "Inverter current limitation"},
+      "charger_voltage_too_high": {"name": "Charger voltage too high"},
+      "charger_voltage_too_low": {"name": "Charger voltage too low"},
+      "dc_dc_fault": {"name": "DC/DC converter fault"},
+      "high_efficiency_frequency_out_of_range": {"name": "High-efficiency frequency out of range"},
+      "high_efficiency_voltage_out_of_range": {"name": "High-efficiency voltage out of range"},
+      "inverter_fault": {"name": "Inverter fault"},
+      "inverter_voltage_too_high": {"name": "Inverter voltage too high"},
+      "inverter_voltage_too_low": {"name": "Inverter voltage too low"},
+      "dc_bus_unbalanced": {"name": "DC bus unbalanced"},
+      "rectifier_fault": {"name": "Rectifier fault"},
+      "battery_test_passed": {"name": "Battery test passed"},
+      "battery_test_failed": {"name": "Battery test failed"},
+      "battery_test_aborted": {"name": "Battery test aborted"}
     }
   }
 }

@@ -4,7 +4,7 @@
     "step": {
       "user": {
         "title": "Salicru SAI",
-        "description": "Conecta tu SLC TWIN RT3 por la red local. Activa Modbus TCP en el SAI antes de continuar. Introduce solo la IP o el nombre de host, sin https://. Se comprobarán los 11 registros del perfil IQ14700; puede tardar unos segundos. No se necesita cuenta Nimbus ni editar YAML.",
+        "description": "Conecta tu SLC TWIN RT3 por la red local. Activa Modbus TCP en el SAI antes de continuar. Introduce solo la IP o el nombre de host, sin https://. Se comprobarán las lecturas del perfil IQ14700; puede tardar unos segundos. No se necesita cuenta Nimbus ni editar YAML.",
         "data": {
           "name": "Nombre",
           "host": "Dirección IP o nombre de host",
@@ -73,6 +73,46 @@
       "battery_voltage": {
         "name": "Tensión de batería"
       },
+      "nominal_battery_voltage": {"name": "Tensión nominal de batería"},
+      "bypass_voltage": {"name": "Tensión de bypass"},
+      "bypass_frequency": {"name": "Frecuencia de bypass"},
+      "active_output_power": {"name": "Potencia activa de salida"},
+      "apparent_output_power": {"name": "Potencia aparente de salida"},
+      "nominal_active_power": {"name": "Potencia activa nominal"},
+      "nominal_apparent_power": {"name": "Potencia aparente nominal"},
+      "internal_temperature": {"name": "Temperatura interna"},
+      "external_battery_branches": {"name": "Ramas de batería externas"},
+      "power_factor": {"name": "Factor de potencia de salida"},
+      "firmware_version": {"name": "Versión de firmware del SAI"},
+      "battery_test_result": {
+        "name": "Resultado del último test de batería",
+        "state": {
+          "passed": "Superada", "reserved": "Reservado", "failed": "Fallida",
+          "aborted": "Abortada", "in_progress": "En curso", "not_started": "No iniciada"
+        }
+      },
+      "charger_mode": {
+        "name": "Modo del cargador",
+        "state": {
+          "unknown": "Desconocido", "charging": "Cargando", "discharging": "Descargando",
+          "float": "Flotación", "resting": "En reposo", "off": "Apagado"
+        }
+      },
+      "converter_type": {
+        "name": "Tipo de convertidor",
+        "state": {
+          "unknown": "Desconocido", "line_interactive": "Interactivo de línea",
+          "online": "En línea", "online_parallel": "En línea en paralelo"
+        }
+      },
+      "phase_configuration": {
+        "name": "Configuración de fases de entrada/salida",
+        "state": {
+          "unknown": "Desconocido", "single_single": "Monofásica / monofásica",
+          "two_two": "Dos fases / dos fases", "three_single": "Trifásica / monofásica",
+          "three_three": "Trifásica / trifásica"
+        }
+      },
       "operating_mode": {
         "name": "Modo del SAI",
         "state": {
@@ -91,6 +131,12 @@
       "mode_code": {
         "name": "Código de modo"
       },
+      "status_2": {"name": "Registro de estado 2 (sin decodificar)"},
+      "status_3": {"name": "Registro de estado 3 (sin decodificar)"},
+      "status_4": {"name": "Registro de estado 4 (sin decodificar)"},
+      "status_6": {"name": "Registro de estado 6 (sin decodificar)"},
+      "status_7": {"name": "Registro de estado 7 (sin decodificar)"},
+      "status_8": {"name": "Registro de estado 8 (sin decodificar)"},
       "status_1": {
         "name": "Registro de estado 1"
       },
@@ -99,6 +145,35 @@
       }
     },
     "binary_sensor": {
+      "load_segment_supported": {"name": "Segmento de carga compatible"},
+      "iot_connected": {"name": "Módulo IoT conectado"},
+      "charger_fault": {"name": "Fallo del cargador"},
+      "battery_end_of_runtime": {"name": "Autonomía de batería agotada"},
+      "input_wiring_fault": {"name": "Fallo del cableado de entrada"},
+      "input_frequency_out_of_range": {"name": "Frecuencia de entrada fuera de rango"},
+      "input_voltage_out_of_range": {"name": "Tensión de entrada fuera de rango"},
+      "bypass_frequency_out_of_range": {"name": "Frecuencia de bypass fuera de rango"},
+      "bypass_fault": {"name": "Fallo de bypass"},
+      "bypass_overload": {"name": "Sobrecarga de bypass"},
+      "output_overload_prealarm": {"name": "Prealarma de sobrecarga de salida"},
+      "output_short_circuit_alarm": {"name": "Alarma de cortocircuito de salida"},
+      "output_short_circuit": {"name": "Cortocircuito de salida"},
+      "emergency_stop": {"name": "Parada de emergencia"},
+      "outlet_group_1_on": {"name": "Grupo de salida 1 encendido"},
+      "inverter_current_limitation": {"name": "Limitación de corriente del inversor"},
+      "charger_voltage_too_high": {"name": "Tensión del cargador demasiado alta"},
+      "charger_voltage_too_low": {"name": "Tensión del cargador demasiado baja"},
+      "dc_dc_fault": {"name": "Fallo del convertidor CC/CC"},
+      "high_efficiency_frequency_out_of_range": {"name": "Frecuencia de alta eficiencia fuera de rango"},
+      "high_efficiency_voltage_out_of_range": {"name": "Tensión de alta eficiencia fuera de rango"},
+      "inverter_fault": {"name": "Fallo del inversor"},
+      "inverter_voltage_too_high": {"name": "Tensión del inversor demasiado alta"},
+      "inverter_voltage_too_low": {"name": "Tensión del inversor demasiado baja"},
+      "dc_bus_unbalanced": {"name": "Bus de CC desequilibrado"},
+      "rectifier_fault": {"name": "Fallo del rectificador"},
+      "battery_test_passed": {"name": "Prueba de batería superada"},
+      "battery_test_failed": {"name": "Prueba de batería fallida"},
+      "battery_test_aborted": {"name": "Prueba de batería abortada"},
       "mains_present": {
         "name": "Red eléctrica presente"
       },

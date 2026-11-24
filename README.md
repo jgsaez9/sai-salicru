@@ -32,11 +32,15 @@ Pulsa **Añadir a HACS** arriba, o sigue estos pasos:
 5. Abre **Ajustes → Dispositivos y servicios → Añadir integración → Salicru SAI**.
 6. Introduce un nombre, la IP del SAI, el puerto y el Unit ID. No incluyas `https://` en la IP.
 
-El asistente valida los 11 registros utilizados y crea un dispositivo con **18 entidades activas**. No se necesita añadir una segunda conexión en la integración Modbus nativa.
+El asistente valida las lecturas del perfil completo y crea sensores de medidas, modos y alarmas. No se necesita añadir una segunda conexión en la integración Modbus nativa.
 
 **Instalación manual:** copia únicamente la carpeta `custom_components/salicru_modbus` a `/config/custom_components/salicru_modbus`, reinicia Home Assistant y realiza los pasos 5 y 6.
 
 ## Entidades
+
+La versión 1.1 amplía el perfil con potencia activa y aparente de salida, tensión y frecuencia de bypass, temperatura interna, factor de potencia, modo de carga, resultado del último test de batería, información nominal y más alarmas. Incluye registros de estado sin decodificar como entidades de diagnóstico opcionales. Solo usa funciones Modbus de lectura; no envía órdenes al SAI.
+
+La autonomía restante y la capacidad de batería no se publican todavía: el mapa presenta solapamiento/formato de varios registros y sus valores necesitan validación adicional en esta unidad.
 
 | Medida | Dirección PDU | Conversión |
 | --- | ---: | --- |
@@ -77,9 +81,9 @@ Las direcciones son **PDU base cero**, sin sumar uno ni prefijo 40001. Cada peti
 - **Actualizaciones:** HACS ofrece las nuevas versiones publicadas en este repositorio. Reinicia Home Assistant después de actualizar.
 - **Desinstalar:** elimina la entrada en Dispositivos y servicios, retira la descarga en HACS y reinicia Home Assistant.
 
-Cada ciclo abre una conexión, lee los 11 registros en secuencia y la cierra. Las alarmas reutilizan los dos registros de estado, sin generar peticiones por cada entidad. Una pérdida de comunicación marca todas las entidades como **no disponibles**; una lectura inválida aislada deja no disponibles solo sus entidades dependientes. La siguiente lectura correcta recupera los estados. No se convierte una falta de datos en una alarma desactivada.
+Cada ciclo abre una conexión, lee los 39 registros en secuencia y la cierra. Las alarmas reutilizan los registros de estado, sin generar peticiones por cada entidad. Una pérdida de comunicación marca todas las entidades como **no disponibles**; una lectura inválida aislada deja no disponibles solo sus entidades dependientes. La siguiente lectura correcta recupera los estados. No se convierte una falta de datos en una alarma desactivada.
 
-La actualización es por sondeo: la detección depende del intervalo, del tiempo de lectura y de la red. No garantiza detectar microcortes. No se incluyen autonomía, potencia en W/VA ni temperatura numérica porque las lecturas del perfil de referencia están pendientes de contraste. La alarma de temperatura sí está incluida.
+La actualización es por sondeo: la detección depende del intervalo, del tiempo de lectura y de la red. No garantiza detectar microcortes. Se incluyen potencia en W/VA y temperatura con registros documentados y leídos en un RT3 de 2 kVA. La autonomía y la capacidad de batería se omiten porque el mapa presenta ambigüedades que requieren validación adicional.
 
 ## Diagnóstico
 
